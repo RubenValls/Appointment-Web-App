@@ -2,6 +2,27 @@ import AppointmentDate from "../Class/appointmentDate.js";
 
 const form = document.querySelector('#form').addEventListener('submit', createDate);
 
+var today = new Date();
+var day = today.getDate();
+var month = today.getMonth() + 1; //January is 0!
+var year = today.getFullYear();
+var hour = today.getHours();
+var minutes = today.getMinutes();
+
+if (day < 10) {
+    day = '0' + dd;
+}
+
+if (month < 10) {
+    month = '0' + month;
+} 
+    
+today = year + '-' + month + '-' + day;
+document.querySelector("#bDate").setAttribute("max", today);
+
+today = year + '-' + month + '-' + day + "T" + hour + ":" + minutes;
+document.querySelector("#apptDate").setAttribute("min", today);
+
 function createDate(){
         let finalDate = new AppointmentDate()
         let aDate = document.querySelector('#apptDate').value
