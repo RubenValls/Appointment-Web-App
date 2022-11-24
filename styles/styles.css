@@ -1,0 +1,20 @@
+#footerheader-img:hover {
+  transform: scale(1.15);
+  transition: 1s;
+}
+
+#footerheader-img:not(:hover) {
+  transform: scale(1);
+  transition: 1s;
+}
+
+#appt-button:hover {
+  box-shadow: 10px 10px 5px #5f5f5f;
+  transition: 0.7s;
+}
+
+#appt-button:not(:hover) {
+  transition: 0.7s;
+}
+
+/*# sourceMappingURL=styles.css.map */
