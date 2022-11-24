@@ -20,8 +20,28 @@ if (month < 10) {
 today = year + '-' + month + '-' + day;
 document.querySelector("#bDate").setAttribute("max", today);
 
-today = year + '-' + month + '-' + day + "T" + hour + ":" + minutes;
-document.querySelector("#apptDate").setAttribute("min", today);
+var todayDateHour = new Date();
+todayDateHour = year + '-' + month + '-' + day + "T" + hour + ":" + minutes;
+document.querySelector("#apptDate").setAttribute("min", todayDateHour);
+
+let aDate = document.querySelector('#apptDate')
+let bDates = document.querySelector('#bDate')
+
+aDate.addEventListener('input', () => {
+    if(aDate.value < todayDateHour){
+        document.querySelector('#submitButton').disabled = true;
+    }else{
+        document.querySelector('#submitButton').disabled = false;
+    }
+})
+
+bDates.addEventListener('input', () => {
+    if(bDates.value > todayDateHour){
+        document.querySelector('#submitButton').disabled = true;
+    }else{
+        document.querySelector('#submitButton').disabled = false;
+    }
+})
 
 function createDate(){
         let finalDate = new AppointmentDate()
