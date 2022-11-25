@@ -17,4 +17,14 @@
   transition: 0.7s;
 }
 
+.form-control:hover {
+  transform: scale(1.03);
+  transition: 0.2s;
+}
+
+.form-control:not(:hover) {
+  transform: scale(1);
+  transition: 0.5s;
+}
+
 /*# sourceMappingURL=styles.css.map */
