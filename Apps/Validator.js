@@ -1,8 +1,9 @@
 import AppointmentDate from "../Class/appointmentDate.js";
 
-const form = document.querySelector('#form').addEventListener('submit', createDate);
-
 validationDates();
+validateNif();
+const form = document.querySelector('#form')
+form.addEventListener('submit', createDate);
 
 function createDate(){
         let finalDate = new AppointmentDate()
@@ -70,6 +71,27 @@ function validationDates(){
             document.querySelector('#submitButton').disabled = true;
         }else{
             document.querySelector('#submitButton').disabled = false;
+        }
+    })
+}
+
+function validateNif() {
+    let checkNid = document.querySelector('#nid');
+    checkNid.addEventListener('change', () => {
+        let dni = checkNid.value;
+        if(dni.length == 9){
+            //Se separan los números de la letra
+            var letraDNI = dni.substring(8, 9).toUpperCase();
+            var numDNI = parseInt(dni.substring(0, 8));
+            //Se calcula la letra correspondiente al número
+            var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+            var letraCorrecta = letras[numDNI % 23];
+    
+            if(letraDNI!= letraCorrecta){
+                document.querySelector('#submitButton').disabled = true;
+            } else {
+                document.querySelector('#submitButton').disabled = false;
+            }
         }
     })
 }
