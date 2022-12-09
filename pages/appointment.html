@@ -23,30 +23,39 @@
                 <div class="container text-center">
                     <h3>Appt. Date:</h3>
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group">
                     <input type="datetime-local" class="form-control text-center" id="apptDate" required>
+                </div>
+                <div class="form-text mb-3">
+                    Please, insert a future date. Past dates will disable the submit button.
                 </div>
                 <div class="container text-center">
                     <h3>Patient Info:</h3>
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group">
                     <span class="input-group-text">Name:</span>
-                    <input type="text" class="form-control" placeholder="..." id="name" required>
+                    <input type="text" class="form-control" placeholder="..." id="name" pattern="[a-zA-Z\s]+" required>
                     <span class="input-group-text">Surname:</span>
-                    <input type="text" class="form-control" placeholder="..." id="surname" required>
+                    <input type="text" class="form-control" placeholder="..." id="surname" pattern="[a-zA-Z\s]+" required>
+                </div>
+                <div class="form-text mb-3">
+                    Only letters.
                 </div>
                 <div class="input-group mb-0">
                     <span class="input-group-text">N-ID:</span>
                     <input type="text" class="form-control" placeholder="..." id="nid" pattern="[0-9]{8}[A-Za-z]{1}" required>
                     <span class="input-group-text">Number:</span>
-                    <input type="tel" class="form-control" placeholder="..." id="phone" required>
+                    <input type="number" class="form-control" placeholder="..." id="phone" minlength="8" maxlength="14" required>
                 </div>
                 <div class="form-text mb-3">
                     ID: 8 numbers and 1 letter.
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group">
                     <span class="input-group-text">Birth date:</span>
                     <input type="date" class="form-control text-center" id="bDate" required>
+                </div>
+                <div class="form-text mb-3">
+                    Minimum value: 18 years old.
                 </div>
                 <div class="input-group mb-5">
                     <span class="input-group-text">Observations: </span>

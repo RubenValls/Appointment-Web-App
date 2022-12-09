@@ -33,30 +33,31 @@ function createDate(){
 function validationDates(){
     var today = new Date();
     var day = today.getDate();
-    var month = today.getMonth() + 1; //January is 0!
+    var month = today.getMonth() + 1;
     var year = today.getFullYear();
     var hour = today.getHours();
     var minutes = today.getMinutes();
 
     if (day < 10) {
-        day = '0' + dd;
+        day = '0' + day;
     }
 
     if (month < 10) {
         month = '0' + month;
     } 
-        
-    today = year + '-' + month + '-' + day;
+    
+    let yearsOld = parseInt(year) - 18;
+    today =  yearsOld + '-' + month + '-' + day;
     document.querySelector("#bDate").setAttribute("max", today);
 
     var todayDateHour = new Date();
     todayDateHour = year + '-' + month + '-' + day + "T" + hour + ":" + minutes;
     document.querySelector("#apptDate").setAttribute("min", todayDateHour);
 
-    let aDate = document.querySelector('#apptDate')
-    let bDates = document.querySelector('#bDate')
+    let aDate = document.querySelector('#apptDate');
+    let bDates = document.querySelector('#bDate');
 
-    aDate.addEventListener('input', () => {
+    aDate.addEventListener('change', () => {
         if(aDate.value < todayDateHour){
             document.querySelector('#submitButton').disabled = true;
         }else{
@@ -64,7 +65,7 @@ function validationDates(){
         }
     })
 
-    bDates.addEventListener('input', () => {
+    bDates.addEventListener('change', () => {
         if(bDates.value > todayDateHour){
             document.querySelector('#submitButton').disabled = true;
         }else{
